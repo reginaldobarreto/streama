@@ -4,7 +4,10 @@
 cd /home/debian-media/Downloads/Torrent/
 
 ####### MOVER ARQUIVOS NO MESMO DIRETORIO #########
-find /home/debian-media/Downloads/Torrent/ -ctime 0 *.* -exec mv {} . \;
+find /home/debian-media/Downloads/Torrent/ -ctime 0 -name '*.srt' -exec mv {} . \;
+find /home/debian-media/Downloads/Torrent/ -ctime 0 -size +300M -name '*.mp4' -exec mv {} . \;
+find /home/debian-media/Downloads/Torrent/ -ctime 0 -size +300M -name '*.mkv' -exec mv {} . \;
+find /home/debian-media/Downloads/Torrent/ -ctime 0 -size +300M -name '*.avi' -exec mv {} . \;
 
 ######## RENOMEAR ARQUIVOS ###########
 for i in *\(*\)*; do j=`echo $i |sed -e 's/[()]//g'`; mv "$i" "$j"; done
@@ -42,7 +45,6 @@ find /home/debian-media/Downloads/Torrent/ -ctime 0 -name '*.srt' -exec mv {} ./
 find /home/debian-media/Downloads/Torrent/ -ctime 0 -size +300M -name '*.mp4' -exec mv {} ./MP4 \;
 find /home/debian-media/Downloads/Torrent/ -ctime 0 -size +300M -name '*.mkv' -exec mv {} ./MKV \;
 find /home/debian-media/Downloads/Torrent/ -ctime 0 -size +300M -name '*.avi' -exec mv {} ./MKV \;
-
 
 sh /home/debian-media/Downloads/Torrent/MP4/move.sh
 sh /home/debian-media/Downloads/Torrent/SRT/move.sh

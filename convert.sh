@@ -4,11 +4,12 @@ if pgrep "ffmpeg" > /dev/null
 then
 
 # echo Rodando
-at now + 15 minutes -f convert.sh
+at now + 40 minutes -f /home/debian-media/convert.sh
  else
 
 # echo Parado
 
+cd /home/debian-media/Downloads/Torrent/MKV/
 
 for i in *\(*\)*; do j=`echo $i |sed -e 's/[()]//g'`; mv "$i" "$j"; done
 rename 'y/[comandotorrents.com].//' *
@@ -40,7 +41,6 @@ rename 's/Ú/u/g' *.*
 rename 's/Ù/u/g' *.*
 rename 's/ç/c/g' *.*
 
-
 for file in $( find ./ -iname "*.mkv" -o -iname "*.avi")
 	do
   OIFS="$IFS"
@@ -50,7 +50,7 @@ for file in $( find ./ -iname "*.mkv" -o -iname "*.avi")
 # usado apenas para mudar o formato do arquivo - melhor velocidade #
 #  ffmpeg -i "$file" -codec copy "${file%.*}.mp4"
   mv "${file%.*}.mp4" /home/debian-media/Vídeos/Filmes/
-  rm "$file"
+#  rm "$file"
   IFS="$OIFS"
 done
 
