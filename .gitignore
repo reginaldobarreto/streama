@@ -1,0 +1,5 @@
+# Compiled class file
+*.log
+*.db
+*.jar
+/data
